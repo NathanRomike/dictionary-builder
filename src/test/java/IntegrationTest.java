@@ -20,13 +20,13 @@ public class IntegrationTest extends FluentTest {
 
   @Test
     public void rootTest() {
-      goTo("http://localhost:4567/addword");
-      assertThat(pageSource()).contains("Welcome to a dictionary");
+      goTo("http://localhost:4567");
+      assertThat(pageSource()).contains("Welcome to a Dictionary...");
   }
 
   @Test
   public void listsWordPageTest() {
-    goTo("http://localhost:4567/addword");
+    goTo("http://localhost:4567");
     fill("#inputfromhomepage").with("Aardvark");
     submit(".btn");
     assertThat(pageSource()).contains("Aardvark");
@@ -34,7 +34,7 @@ public class IntegrationTest extends FluentTest {
 
   @Test
   public void listsMultipleArtistsPageTest() {
-    goTo("http://localhost:4567/addword");
+    goTo("http://localhost:4567");
     fill("#inputfromhomepage").with("Aardvark");
     submit(".btn");
     goTo("http://localhost:4567/addword");
@@ -48,10 +48,9 @@ public class IntegrationTest extends FluentTest {
   public void listsDefinitionTest() {
     goTo("http://localhost:4567/addword");
     fill("#inputfromhomepage").with("Aardvark");
+    fill("#userdefinitioninput").with("A large, nocturnal, burrowing mammal, Orycteropus afer, of central and southern Africa.");
     submit(".btn");
     click("a", withText("Aardvark"));
-    fill("#userdefinitioninput").with("A large, nocturnal, burrowing mammal, Orycteropus afer, of central and southern Africa.");
-    submit("#definitionsubmit");
     assertThat(pageSource()).contains("A large, nocturnal, burrowing mammal, Orycteropus afer, of central and southern Africa.");
   }
 
