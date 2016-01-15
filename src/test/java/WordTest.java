@@ -5,7 +5,7 @@ public class WordTest {
 
   @Test
   public void word_initializesUserInputWord_true() {
-    Word myWord = new Word("Apple");
+    Word myWord = new Word("Aardvark");
     assertEquals(true, myWord instanceof Word);
   }
 
