@@ -30,10 +30,12 @@ public class Definition {
     return mUserInputDefinition;
   }
 
-
   public Word getWord() {
     return mWord;
   }
 
+  public int getId() {
+    return mId;
+  }
 
 }
