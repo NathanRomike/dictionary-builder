@@ -20,7 +20,7 @@ public class WordTest {
   public void all_returnsAllUserInputWords_true() {
     Word myWordOne = new Word("Aardvark");
     Word myWordTwo = new Word("Aardwolf");
-    assertEquals(Word.all().contains(myWordOne));
-    assertEquals(Word.all().contains(myWordTwo));
+    assertTrue(Word.all().contains(myWordOne));
+    assertTrue(Word.all().contains(myWordTwo));
   }
 }
