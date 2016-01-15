@@ -15,4 +15,11 @@ public class DefinitionTest {
     String expected = "A large, nocturnal, burrowing mammal, Orycteropus afer, of central and southern Africa.";
     assertEquals(expected, myDefinition.getDefinition());
   }
+
+  @Test
+  public void definition_hasWord_Aardvark() {
+    Word expected = new Word("Aardvark");
+    Definition myDefinition = new Definition("A large, nocturnal, burrowing mammal, Orycteropus afer, of central and southern Africa.", expected);
+    assertEquals(expected, myDefinition.getWord());
+  }
 }
