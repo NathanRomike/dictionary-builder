@@ -20,6 +20,17 @@ public class IntegrationTest extends FluentTest {
   @Test
     public void rootTest() {
       goTo("http://localhost:4567");
-      assertThat(pageSource()).contains("");
+      assertThat(pageSource()).contains("Welcome to a dictionary");
   }
+
+  @Test
+  public void listsWordPageTest() {
+    goTo("http://localhost:4567");
+    click("a", withText("Add Word"));
+    fill("#userinputname").with("Aardvark");
+    submit(".btn");
+    assertThat(pageSource()).contains("Aardvark");
+  }
+
+
 }
