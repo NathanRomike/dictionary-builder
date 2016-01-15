@@ -28,6 +28,10 @@ public class Word {
     }
   }
 
+  public static void clear() {
+    instances.clear();
+  }
+
   public int getId() {
     return mId;
   }
