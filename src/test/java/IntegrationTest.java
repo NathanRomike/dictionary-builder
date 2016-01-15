@@ -32,5 +32,28 @@ public class IntegrationTest extends FluentTest {
     assertThat(pageSource()).contains("Aardvark");
   }
 
+  @Test
+  public void listsMultipleArtistsPageTest() {
+    goTo("http://localhost:4567/addword");
+    fill("#inputfromhomepage").with("Aardvark");
+    submit(".btn");
+    goTo("http://localhost:4567/addword");
+    fill("#inputfromhomepage").with("Aardwolf");
+    submit(".btn");
+    assertThat(pageSource()).contains("Aardvark");
+    assertThat(pageSource()).contains("Aardwolf");
+  }
+
+  @Test
+  public void listsDefinitionTest() {
+    goTo("http://localhost:4567/addword");
+    fill("#inputfromhomepage").with("Aardvark");
+    submit(".btn");
+    click("a", withText("Aardvark"));
+    fill("#userdefinitioninput").with("A large, nocturnal, burrowing mammal, Orycteropus afer, of central and southern Africa.");
+    submit("#definitionsubmit");
+    assertThat(pageSource()).contains("A large, nocturnal, burrowing mammal, Orycteropus afer, of central and southern Africa.");
+  }
+
 
 }
