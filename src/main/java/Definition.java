@@ -26,6 +26,10 @@ public class Definition {
     }
   }
 
+  public static void clear() {
+    instances.clear();
+  }
+  
   public String getDefinition() {
     return mUserInputDefinition;
   }
