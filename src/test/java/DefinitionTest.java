@@ -26,7 +26,7 @@ public class DefinitionTest {
   @Test
   public void all_returnsAllDefinitions_true() {
     Definition myDefinitionOne = new Definition("A large, nocturnal, burrowing mammal, Orycteropus afer, of central and southern Africa.", new Word("Aardvark"));
-    Definition myDefinitionTwo = new Definition("a maned striped nocturnal mammal of southern and eastern Africa that resembles the related hyenas.", new Word("Aardwolf"));
+    Definition myDefinitionTwo = new Definition("A maned striped nocturnal mammal of southern and eastern Africa that resembles the related hyenas.", new Word("Aardwolf"));
     assertTrue(Definition.all().contains(myDefinitionOne));
     assertTrue(Definition.all().contains(myDefinitionTwo));
   }
@@ -34,7 +34,14 @@ public class DefinitionTest {
   @Test
   public void find_returnsDefinitionWithCorrectID_definitionTwo() {
     Definition myDefinitionOne = new Definition("A large, nocturnal, burrowing mammal, Orycteropus afer, of central and southern Africa.", new Word("Aardvark"));
-    Definition myDefinitionTwo = new Definition("a maned striped nocturnal mammal of southern and eastern Africa that resembles the related hyenas.", new Word("Aardwolf"));
+    Definition myDefinitionTwo = new Definition("A maned striped nocturnal mammal of southern and eastern Africa that resembles the related hyenas.", new Word("Aardwolf"));
     assertEquals(Definition.find(myDefinitionTwo.getId()), myDefinitionTwo);
+  }
+
+  @Test
+  public void clear_empitesDefinitionFromArrayList() {
+    Definition myDefinition = new Definition("A large, nocturnal, burrowing mammal, Orycteropus afer, of central and southern Africa.", new Word("Aardvark"));
+    Definition.clear();
+    assertEquals(Definition.all().size(), 0);
   }
 }
