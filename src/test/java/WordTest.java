@@ -10,9 +10,17 @@ public class WordTest {
   }
 
   @Test
-  public void word_hasUserInputWord_Apple() {
-    Word myWord = new Word("Apple");
-    String expected = "Apple";
+  public void word_hasUserInputWord_Aardvark() {
+    Word myWord = new Word("Aardvark");
+    String expected = "Aardvark";
     assertEquals(expected, myWord.getInputWord());
+  }
+
+  @Test
+  public void all_returnsAllUserInputWords_true() {
+    Word myWordOne = new Word("Aardvark");
+    Word myWordTwo = new Word("Aardwolf");
+    assertEquals(Word.all().contains(myWordOne));
+    assertEquals(Word.all().contains(myWordTwo));
   }
 }
