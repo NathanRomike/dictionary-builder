@@ -8,4 +8,11 @@ public class WordTest {
     Word myWord = new Word();
     assertEquals(true, myWord instanceof Word);
   }
+
+  @Test
+  public void word_hasUserInputWord_Apple() {
+    Word myWord = new Word("Apple");
+    String expected = "Apple";
+    assertEquals(expected, myWord.getInputWord());
+  }
 }
