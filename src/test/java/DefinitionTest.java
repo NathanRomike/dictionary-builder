@@ -22,4 +22,12 @@ public class DefinitionTest {
     Definition myDefinition = new Definition("A large, nocturnal, burrowing mammal, Orycteropus afer, of central and southern Africa.", expected);
     assertEquals(expected, myDefinition.getWord());
   }
+
+  @Test
+  public void all_returnsAllDefinitions_true() {
+    Definition myDefinitionOne = new Definition("A large, nocturnal, burrowing mammal, Orycteropus afer, of central and southern Africa.", new Word("Aardvark"));
+    Definition myDefinitionTwo = new Definition("a maned striped nocturnal mammal of southern and eastern Africa that resembles the related hyenas.", new Word("Aardwolf"));
+    assertTrue(Definition.all().contains(myDefinitionOne));
+    assertTrue(Definition.all().contains(myDefinitionTwo));
+  }
 }
