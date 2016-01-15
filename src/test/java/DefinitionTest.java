@@ -30,4 +30,11 @@ public class DefinitionTest {
     assertTrue(Definition.all().contains(myDefinitionOne));
     assertTrue(Definition.all().contains(myDefinitionTwo));
   }
+
+  @Test
+  public void find_returnsDefinitionWithCorrectID_definitionTwo() {
+    Definition myDefinitionOne = new Definition("A large, nocturnal, burrowing mammal, Orycteropus afer, of central and southern Africa.", new Word("Aardvark"));
+    Definition myDefinitionTwo = new Definition("a maned striped nocturnal mammal of southern and eastern Africa that resembles the related hyenas.", new Word("Aardwolf"));
+    assertEquals(Definition.find(myDefinitionTwo.getId()), myDefinitionTwo);
+  }
 }
