@@ -1,4 +1,4 @@
-import java.util.*;
+import java.util.ArrayList;
 
 public class Word {
   private static ArrayList<Word> instances = new ArrayList<Word>();
@@ -30,6 +30,10 @@ public class Word {
 
   public static void clear() {
     instances.clear();
+  }
+
+  public String getName() {
+    return mUserInputWord;
   }
 
   public int getId() {

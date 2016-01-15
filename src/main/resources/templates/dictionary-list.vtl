@@ -1,0 +1,9 @@
+<h1>Your Dictionary:</h1>
+
+<ul>
+  #foreach ($word in $words)
+  <li><a href="/adddef/$word.getId()">$word.getName()</a></li>
+  #end
+</ul>
+
+<a href="/addword" class="btn btn-default">Add another word</a>
