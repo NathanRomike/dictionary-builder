@@ -46,12 +46,12 @@ public class IntegrationTest extends FluentTest {
 
   @Test
   public void listsDefinitionTest() {
-    goTo("http://localhost:4567/addword");
-    fill("#inputfromhomepage").with("Aardvark");
-    fill("#userdefinitioninput").with("A large, nocturnal, burrowing mammal, Orycteropus afer, of central and southern Africa.");
+    goTo("http://localhost:4567");
+    fill("#inputfromhomepage").with("Abed");
+    fill("#inputfromdefinepage").with("In bed; on a bed..");
     submit(".btn");
-    click("a", withText("Aardvark"));
-    assertThat(pageSource()).contains("A large, nocturnal, burrowing mammal, Orycteropus afer, of central and southern Africa.");
+    click("a", withText("Abed"));
+    assertThat(pageSource()).contains("In bed; on a bed.");
   }
 
 
