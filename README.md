@@ -1,6 +1,6 @@
 # Dictionary Builder - Java
 
-##### This page is to test my knowledge of this application. 1.15.2016.
+##### This page is to test my knowledge of java. 1.15.2016.
 
 #### By **Nathan Romike**
 
