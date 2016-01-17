@@ -1,16 +1,16 @@
-# App Name - Java
+# Dictionary Builder - Java
 
-##### This page is to test my knowledge of this application. 1.x.2016.
+##### This page is to test my knowledge of this application. 1.15.2016.
 
 #### By **Nathan Romike**
 
 ## Description
 
-> This web page exhbits my comprehension of Java. Review my work and tell me what you think. Lets make awesome stuff together!
+> This web page exhbits my comprehension of creating java applications with object oriented development. Review my work and tell me what you think. Lets make awesome stuff together!
 
 ## Setup
 
->Run the program in terminal by entering *$ gradle run* and navigate to the [localhost](http://localhost:4567/).
+>Run the program in terminal by entering '$ gradle run' and navigate to the [localhost](http://localhost:4567/).
 
 ## Technologies Used
 
