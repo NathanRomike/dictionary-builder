@@ -45,10 +45,11 @@ public class App {
 
     get("/adddef/:id", (request, response) -> {
       HashMap<String, Object> model = new HashMap<String, Object>();
-      Word newWord = Word.find(Integer.parseInt(request.params(":id")));
+      Definition newDefinition = Definition.find(Integer.parseInt(request.params(":id")));
+      // Word newWord = Word.find(Integer.parseInt(request.params(":id")));
 
-      model.put("word", newWord);
-      model.put("definitions", Definition.all());
+      model.put("definition", newDefinition);
+      // model.put("definitions", Definition.all());
       model.put("template", "templates/adddef.vtl");
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());

@@ -1,5 +1,0 @@
-## Behavior
-
-## Input
-
-## Output

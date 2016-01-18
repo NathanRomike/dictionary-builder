@@ -33,7 +33,7 @@ public class IntegrationTest extends FluentTest {
   }
 
   @Test
-  public void listsMultipleArtistsPageTest() {
+  public void listsMultipleWordsPageTest() {
     goTo("http://localhost:4567");
     fill("#inputfromhomepage").with("Aardvark");
     submit(".btn");
@@ -47,22 +47,20 @@ public class IntegrationTest extends FluentTest {
   @Test
   public void listsDefinitionTest() {
     goTo("http://localhost:4567");
-    fill("#inputfromhomepage").with("Abed");
-    fill("#inputfromdefinepage").with("In bed; on a bed.");
+    fill("#inputfromhomepage").with("Abase");
+    fill("#inputfromdefinepage").with("To lower in position, estimation, or the like");
     submit(".btn");
-    click("a", withText("Abed"));
-    assertThat(pageSource()).contains("In bed; on a bed.");
+    click("a", withText("Abase"));
+    assertThat(pageSource().contains("To lower in position, estimation, or the like"));
   }
 
   @Test
-  public void listsTheCorrectDefinitionTest() {
-    goTo("hhtp://localhost:4567");
-    fill("#inputfromhomepage").with("Abase");
-    fill("#inputfromdefinpage").with("To lower in position, estimation, or the like");
+  public void doesNotListTheIncorrectDefinitionTest() {
+    goTo("http://localhost:4567");
+    fill("#inputfromhomepage").with("Abyss");
+    fill("#inputfromdefinepage").with("Bottomless gulf.");
     submit(".btn");
-    click("a", withText("Abase"));
-    assertThat(pageSource()).notContains("In bed; on a bed");
+    click("a", withText("Abyss"));
+    assertThat(pageSource()).doesNotContain("To lower in position, estimation, or the like");
   }
-
-
 }

@@ -13,7 +13,7 @@ public class WordTest {
   public void word_hasUserInputWord_Aardvark() {
     Word myWord = new Word("Aardvark");
     String expected = "Aardvark";
-    assertEquals(expected, myWord.getInputWord());
+    assertEquals(expected, myWord.getName());
   }
 
   @Test

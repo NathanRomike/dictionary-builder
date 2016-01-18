@@ -12,10 +12,6 @@ public class Word {
     mId = instances.size();
   }
 
-  public String getInputWord() {
-    return mUserInputWord;
-  }
-
   public static ArrayList<Word> all() {
     return instances;
   }
