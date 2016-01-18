@@ -1,11 +1,14 @@
-<h1>Please enter another word you would like to define.</h1>
-
+<h1>Add new word to your Dictionary.</h1>
+<br>
 <form action="/dictionary-list" method="post">
   <label for="inputfromhomepage">Word:</label>
-  <input id="inputfromhomepage" name="inputfromhomepage" type="text">
-
-
+  <input id="inputfromhomepage" name="inputfromhomepage" type="text" placeholder="Aardvark" required>
   <label for="inputfromdefinepage">Definition:</label>
-  <input id="inputfromdefinepage" name="inputfromdefinepage" type="text">
-  <button type="submit" class="btn btn-default">Add Word</button>
+  <input id="inputfromdefinepage" name="inputfromdefinepage" type="text" placeholder="A large, nocturnal, burrowing mammal, Orycteropus afer, of central and southern Africa." required>
+<br>
+<br>
+<button type="submit" class="btn btn-default">Add Word</button>
 </form>
+<br>
+<br>
+<a href="/dictionary-list" class="btn btn-default">Back to Dictionary</a>

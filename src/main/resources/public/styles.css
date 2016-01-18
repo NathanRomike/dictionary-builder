@@ -1,0 +1,24 @@
+body {
+  text-align: center;
+}
+
+h1 {
+  font-family: “Century Gothic”, CenturyGothic, AppleGothic, sans-serif;
+}
+
+h2 {
+  font-family: “Century Gothic”, CenturyGothic, AppleGothic, sans-serif;
+}
+
+a [name="dictionary-list"] {
+  text-align: center;
+  width: 100px;
+}
+
+#inputfromhomepage {
+  width: 100px;
+}
+
+#inputfromdefinepage {
+  width: 600px;
+}

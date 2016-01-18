@@ -1,9 +1,9 @@
 <h1>Your Dictionary:</h1>
-
-<ul>
+<br>
+<div class="list-group" >
   #foreach ($word in $words)
-  <li><a href="/adddef/$word.getId()">$word.getName()</a></li>
+  <a name="dictionary-list" href="/adddef/$word.getId()" class="list-group-item">$word.getName()</a>
   #end
-</ul>
-
+</div>
+<br>
 <a href="/addword" class="btn btn-default">Add another word</a>
