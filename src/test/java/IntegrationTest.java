@@ -48,10 +48,20 @@ public class IntegrationTest extends FluentTest {
   public void listsDefinitionTest() {
     goTo("http://localhost:4567");
     fill("#inputfromhomepage").with("Abed");
-    fill("#inputfromdefinepage").with("In bed; on a bed..");
+    fill("#inputfromdefinepage").with("In bed; on a bed.");
     submit(".btn");
     click("a", withText("Abed"));
     assertThat(pageSource()).contains("In bed; on a bed.");
+  }
+
+  @Test
+  public void listsTheCorrectDefinitionTest() {
+    goTo("hhtp://localhost:4567");
+    fill("#inputfromhomepage").with("Abase");
+    fill("#inputfromdefinpage").with("To lower in position, estimation, or the like");
+    submit(".btn");
+    click("a", withText("Abase"));
+    assertThat(pageSource()).notContains("In bed; on a bed");
   }
 
 
