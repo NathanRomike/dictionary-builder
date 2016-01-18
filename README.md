@@ -1,12 +1,12 @@
 # Dictionary Builder - Java
 
-##### This page is to test my knowledge of java. 1.15.2016.
+##### This application is to test my knowledge of java. 1.15.2016.
 
 #### By **Nathan Romike**
 
 ## Description
 
-> This web page exhbits my comprehension of creating java applications with object oriented development. Review my work and tell me what you think. Lets make awesome stuff together!
+> This application exhibits my comprehension of creating java applications with object oriented development. Review my work and tell me what you think. Lets make awesome stuff together!
 
 ## Setup
 
@@ -25,6 +25,7 @@
 * Velocity
 * Spark
 * FluentLenium
+* Heroku
 
 ### Legal
 
