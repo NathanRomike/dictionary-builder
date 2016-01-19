@@ -10,7 +10,7 @@
 
 ## Setup
 
->View this application deployed to [Heroku](https://morning-lowlands-6946.herokuapp.com/).
+>View this application deployed to [Heroku](https://enigmatic-inlet-8085.herokuapp.com/).
 
 **Or**
 
