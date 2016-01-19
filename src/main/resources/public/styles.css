@@ -1,24 +1,37 @@
+@media only screen and (max-width: 768px) {
+
+}
+
 body {
   text-align: center;
 }
 
 h1 {
   font-family: “Century Gothic”, CenturyGothic, AppleGothic, sans-serif;
+  font-size:40px;
 }
 
 h2 {
   font-family: “Century Gothic”, CenturyGothic, AppleGothic, sans-serif;
+  font-size:60px;
 }
 
-a [name="dictionary-list"] {
-  text-align: center;
-  width: 100px;
+div.list-group {
+  font-size:20px;
+  line-height: 10px;
+  margin: auto;
+  width: 60%;
+  width: 300px;
+}
+
+div.jumbotron {
+  margin-top: 40px;
 }
 
 #inputfromhomepage {
-  width: 100px;
+  width: 90px;
 }
 
 #inputfromdefinepage {
-  width: 600px;
+  width: 557px;
 }
