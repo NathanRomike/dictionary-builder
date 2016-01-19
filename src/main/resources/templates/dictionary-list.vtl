@@ -1,9 +1,11 @@
-<h1>Your Dictionary:</h1>
-<br>
-<div class="list-group" >
-  #foreach ($word in $words)
-  <a name="dictionary-list" href="/adddef/$word.getId()" class="list-group-item">$word.getName()</a>
-  #end
+<div class="jumbotron">
+  <h1>Your Dictionary:</h1>
+  <br>
+  <div class="list-group" >
+    #foreach ($word in $words)
+    <a name="dictionary-list" href="/adddef/$word.getId()" class="list-group-item">$word.getName()</a>
+    #end
+  </div>
+  <br>
+  <a href="/addword" class="btn btn-primary btn-md">Add Another Word</a>
 </div>
-<br>
-<a href="/addword" class="btn btn-primary btn-lg">Add Another Word</a>
