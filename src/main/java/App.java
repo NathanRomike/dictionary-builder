@@ -47,7 +47,19 @@ public class App {
 
       model.put("definition", newDefinition);
       model.put("definitions", Definition.all());
-      model.put("template", "templates/adddef.vtl");
+      model.put("template", "templates/definition.vtl");
+      return new ModelAndView(model, layout);
+    }, new VelocityTemplateEngine());
+
+    post("/:id", (request, response) -> {
+      HashMap<String, Object> model = new HashMap<String, Object>();
+      Word wordId = Word.find(Integer.parseInt(request.params("id")));
+
+      String definitionInput = request.queryParams("inputfromdefinepage");
+      Definition newDefinition = new Definition(definitionInput, wordId);
+
+      model.put("definitions", Definition.all());
+      model.put("template", "templates/index.vtl");
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
   }
