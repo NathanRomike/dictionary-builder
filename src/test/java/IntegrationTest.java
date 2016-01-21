@@ -37,7 +37,7 @@ public class IntegrationTest extends FluentTest {
     goTo("http://localhost:4567");
     fill("#inputfromhomepage").with("Aardvark");
     submit(".btn");
-    goTo("http://localhost:4567/addword");
+    goTo("http://localhost:4567");
     fill("#inputfromhomepage").with("Aardwolf");
     submit(".btn");
     assertThat(pageSource()).contains("Aardvark");
@@ -62,5 +62,17 @@ public class IntegrationTest extends FluentTest {
     submit(".btn");
     click("a", withText("Abyss"));
     assertThat(pageSource()).doesNotContain("To lower in position, estimation, or the like");
+  }
+
+  @Test
+  public void addsAdditionalDefinitionsTest() {
+    goTo("http://localhost:4567");
+    fill("#inputfromhomepage").with("Abyss");
+    fill("#inputfromdefinepage").with("Bottomless gulf.");
+    submit(".btn");
+    click("a", withText("Abyss"));
+    fill("#inputfromdefinepage").with("Really deep hole.");
+    submit(".btn");
+    assertThat(pageSource().contains("Really deep hole."));
   }
 }
