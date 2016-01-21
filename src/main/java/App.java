@@ -30,24 +30,25 @@ public class App {
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
 
-    get("/dictionary-list", (request, response) -> {
-      HashMap<String, Object> model = new HashMap<String, Object>();
-      model.put("words", Word.all());
-      model.put("template", "templates/dictionary-list.vtl");
-      return new ModelAndView(model, layout);
-    }, new VelocityTemplateEngine());
+    // get("/dictionary-list", (request, response) -> {
+    //   HashMap<String, Object> model = new HashMap<String, Object>();
+    //   model.put("words", Word.all());
+    //   model.put("template", "templates/dictionary-list.vtl");
+    //   return new ModelAndView(model, layout);
+    // }, new VelocityTemplateEngine());
 
-    post("/dictionary-list", (request, response) -> {
+    post("/", (request, response) -> {
       HashMap<String, Object> model = new HashMap<String, Object>();
 
       String wordInput = request.queryParams("inputfromhomepage");
-      Word newWord = new Word(wordInput);
       String definitionInput = request.queryParams("inputfromdefinepage");
+
+      Word newWord = new Word(wordInput);
       Definition newDefinition = new Definition(definitionInput, newWord);
 
       model.put("definition", Definition.all());
       model.put("words", Word.all());
-      model.put("template", "templates/dictionary-list.vtl");
+      model.put("template", "templates/index.vtl");
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
 

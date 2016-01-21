@@ -2,9 +2,14 @@
   <h2>Welcome to a Dictionary...</h2>
   <h2>Built by you!</h2>
   <br>
-  <p>Please enter a word and definition to start building.</p>
+  <div class="list-group" >
+    #foreach ($word in $words)
+    <a name="dictionary-list" href="/adddef/$word.getId()" class="list-group-item">$word.getName()</a>
+    #end
+  </div>
   <br>
-  <form action="/dictionary-list" method="post">
+  <p>Please enter a word and definition:</p>
+  <form action="/" method="post">
     <label for="inputfromhomepage">Word:</label>
     <input id="inputfromhomepage" name="inputfromhomepage" type="text" placeholder="Aardvark" required>
     <br>
