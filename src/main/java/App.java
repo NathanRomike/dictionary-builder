@@ -14,15 +14,15 @@ public class App {
     } else {
        port = 4567;
     }
-    setPort(port);  
+    setPort(port);
     staticFileLocation("/public");
     String layout = "templates/layout.vtl";
 
     get("/", (request, response) -> {
-          HashMap<String, Object> model = new HashMap<String, Object>();
-          model.put("template", "templates/index.vtl");
-          return new ModelAndView(model, layout);
-        }, new VelocityTemplateEngine());
+      HashMap<String, Object> model = new HashMap<String, Object>();
+      model.put("template", "templates/index.vtl");
+      return new ModelAndView(model, layout);
+    }, new VelocityTemplateEngine());
 
     get("addword", (request, response) -> {
       HashMap<String, Object> model = new HashMap<String, Object>();
@@ -39,11 +39,11 @@ public class App {
 
     post("/dictionary-list", (request, response) -> {
       HashMap<String, Object> model = new HashMap<String, Object>();
-      String userWordName = request.queryParams("inputfromhomepage");
-      Word newWord = new Word(userWordName);
 
-      String newUserDefinition = request.queryParams("inputfromdefinepage");
-      Definition newDefinition = new Definition(newUserDefinition, newWord);
+      String wordInput = request.queryParams("inputfromhomepage");
+      Word newWord = new Word(wordInput);
+      String definitionInput = request.queryParams("inputfromdefinepage");
+      Definition newDefinition = new Definition(definitionInput, newWord);
 
       model.put("definition", Definition.all());
       model.put("words", Word.all());
@@ -54,10 +54,8 @@ public class App {
     get("/adddef/:id", (request, response) -> {
       HashMap<String, Object> model = new HashMap<String, Object>();
       Definition newDefinition = Definition.find(Integer.parseInt(request.params(":id")));
-      // Word newWord = Word.find(Integer.parseInt(request.params(":id")));
 
       model.put("definition", newDefinition);
-      // model.put("definitions", Definition.all());
       model.put("template", "templates/adddef.vtl");
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
