@@ -1,23 +1,35 @@
-<div class="jumbotron">
-  <h2>Welcome to a Dictionary...</h2>
-  <h2>Built by you!</h2>
-  <br>
-  <div class="list-group" >
-    #foreach ($word in $words)
-    <a name="dictionary-list" href="/$word.getId()" class="list-group-item">$word.getName()</a>
-    #end
-  </div>
-  <br>
-  <p>Please enter a word and definition:</p>
-  <form action="/" method="post">
-    <label for="inputfromhomepage">Word:</label>
-    <input id="inputfromhomepage" name="inputfromhomepage" type="text" placeholder="Aardvark" required>
-    <br>
-    <br>
-    <label for="inputfromdefinepage">Definition:</label>
-    <input id="inputfromdefinepage" name="inputfromdefinepage" type="text" placeholder="A large, nocturnal, burrowing mammal, Orycteropus afer, of central and southern Africa." required>
-    <br>
-    <br>
-    <button type="submit" class="btn btn-primary btn-md">Add Word</button>
-  </form>
+<h2>Welcome to a Dictionary...</h2>
+<h2>Built by you!</h2>
+<br>
+<div class="list-group" >
+  #foreach ($word in $words)
+  <a name="dictionary-list" href="/$word.getId()" class="list-group-item">$word.getName()</a>
+  #end
 </div>
+<br>
+<p>Please enter a new word and definition:</p>
+<form action="/" method="post">
+  <label for="inputfromhomepage">Word:</label>
+  <input id="inputfromhomepage" name="inputfromhomepage" type="text" placeholder="Aardvark" required>
+  <br>
+  <br>
+  <label for="inputfromdefinepage">Definition:</label>
+  <input id="inputfromdefinepage" name="inputfromdefinepage" type="text" placeholder="A large, nocturnal, burrowing mammal, Orycteropus afer, of central and southern Africa." required>
+  <br>
+  <br>
+  <button type="submit" class="btn btn-primary btn-md">Add Word</button>
+</form>
+<br>
+#if ($words.size() > 0)
+  <p>Would you like to add a secondary definition to your word?</p>
+  <form action="/adddefinition" method="post">
+    <label for="inputfromdefinepage">Definition:</label>
+    <input id="inputfromdefinepage" name="inputfromdefinepage" type="text" required>
+    <select id="wordSelection" name="wordSelection" type="text">
+      #foreach ($word in $words)
+        <option value="$word.getId()">$word.getName()</option>
+      #end
+    </select>
+    <button type="submit" class="btn btn-primary btn-md">Add Another Definition</button>
+  </form>
+#end

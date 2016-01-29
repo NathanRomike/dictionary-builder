@@ -26,6 +26,7 @@ public class App {
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
 
+
     post("/", (request, response) -> {
       HashMap<String, Object> model = new HashMap<String, Object>();
 
@@ -41,26 +42,24 @@ public class App {
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
 
+    post("/adddefinition", (request, response) -> {
+      HashMap<String, Object> model = new HashMap<String, Object>();
+      Word word = Word.find(Integer.parseInt(request.queryParams("wordSelection")));
+
+      String definitionInput = request.queryParams("inputfromdefinepage");
+      Definition newDefinition = new Definition(definitionInput, word);
+      response.redirect("/");
+      return null;
+    });
+
     get("/:id", (request, response) -> {
       HashMap<String, Object> model = new HashMap<String, Object>();
-      Definition newDefinition = Definition.find(Integer.parseInt(request.params("id")));
 
-      model.put("definition", newDefinition);
-      model.put("definitions", Definition.all());
+      model.put("definitions", Definition.find(Integer.parseInt(request.params("id"))));
+      
       model.put("template", "templates/definition.vtl");
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
 
-    post("/:id", (request, response) -> {
-      HashMap<String, Object> model = new HashMap<String, Object>();
-      Word wordId = Word.find(Integer.parseInt(request.params("id")));
-
-      String definitionInput = request.queryParams("inputfromdefinepage");
-      Definition newDefinition = new Definition(definitionInput, wordId);
-
-      model.put("definitions", Definition.all());
-      model.put("template", "templates/index.vtl");
-      return new ModelAndView(model, layout);
-    }, new VelocityTemplateEngine());
   }
 }
