@@ -4,12 +4,10 @@ public class Definition {
   private static ArrayList<Definition> instances = new ArrayList<Definition>();
 
   private final String mUserInputDefinition;
-  private final Word mWord;
   private int mId;
 
-  public Definition(String inputDefinition, Word word) {
+  public Definition(String inputDefinition) {
     mUserInputDefinition = inputDefinition;
-    mWord = word;
     instances.add(this);
     mId = instances.size();
   }
@@ -32,10 +30,6 @@ public class Definition {
 
   public String getDefinition() {
     return mUserInputDefinition;
-  }
-
-  public Word getWord() {
-    return mWord;
   }
 
   public int getId() {

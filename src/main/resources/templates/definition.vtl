@@ -1,9 +1,9 @@
-<h1>$definitions.getWord().getName()</h1>
+<h1>$word.getName()</h1>
 <br>
 <br>
 <div class="list-group">
-  #foreach ($definition in $definitions)
-      <h4 class="def">: $definition</h4>
+  #foreach ($definition in $word.getDefinitions())
+      <h4 class="def">: $definition.getName()</h4>
   #end
 </div>
 <br>

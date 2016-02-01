@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 public class Word {
   private static ArrayList<Word> instances = new ArrayList<Word>();
-
+  private ArrayList<Definition> definitionAll = new ArrayList<Definition>();
   private final String mUserInputWord;
   private int mId;
 
@@ -10,6 +10,14 @@ public class Word {
     mUserInputWord = inputWord;
     instances.add(this);
     mId = instances.size();
+  }
+
+  public String getName() {
+    return mUserInputWord;
+  }
+
+  public int getId() {
+    return mId;
   }
 
   public static ArrayList<Word> all() {
@@ -28,11 +36,12 @@ public class Word {
     instances.clear();
   }
 
-  public String getName() {
-    return mUserInputWord;
+  public void addDefinition(String inputDefinition) {
+    Definition definition = new Definition(inputDefinition);
+    definitionAll.add(definition);
   }
 
-  public int getId() {
-    return mId;
+  public ArrayList<Definition> getDefinitions(String definition) {
+    return definitionAll;
   }
 }

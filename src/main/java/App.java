@@ -29,12 +29,10 @@ public class App {
 
     post("/", (request, response) -> {
       HashMap<String, Object> model = new HashMap<String, Object>();
-
       String wordInput = request.queryParams("inputfromhomepage");
       String definitionInput = request.queryParams("inputfromdefinepage");
-
       Word newWord = new Word(wordInput);
-      Definition newDefinition = new Definition(definitionInput, newWord);
+      Definition newDefinition = new Definition(definitionInput);
 
       model.put("definitions", Definition.all());
       model.put("words", Word.all());
@@ -47,16 +45,15 @@ public class App {
       Word word = Word.find(Integer.parseInt(request.queryParams("wordSelection")));
 
       String definitionInput = request.queryParams("inputfromdefinepage");
-      Definition newDefinition = new Definition(definitionInput, word);
+      word.addDefinition(definitionInput);
       response.redirect("/");
       return null;
     });
 
     get("/:id", (request, response) -> {
       HashMap<String, Object> model = new HashMap<String, Object>();
+      model.put("word", Word.find(Integer.parseInt(request.params("id"))));
 
-      model.put("definitions", Definition.find(Integer.parseInt(request.params("id"))));
-      
       model.put("template", "templates/definition.vtl");
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
