@@ -41,7 +41,7 @@ public class Word {
     definitionAll.add(definition);
   }
 
-  public ArrayList<Definition> getDefinitions(String definition) {
+  public ArrayList<Definition> getDefinitions() {
     return definitionAll;
   }
 }

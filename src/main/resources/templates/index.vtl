@@ -9,27 +9,27 @@
 <br>
 <p>Please enter a new word and definition:</p>
 <form action="/" method="post">
-  <label for="inputfromhomepage">Word:</label>
-  <input id="inputfromhomepage" name="inputfromhomepage" type="text" placeholder="Aardvark" required>
+  <label for="word-input">Word:</label>
+  <input id="word-input" name="word-input" type="text" placeholder="Aardvark" required>
   <br>
   <br>
-  <label for="inputfromdefinepage">Definition:</label>
-  <input id="inputfromdefinepage" name="inputfromdefinepage" type="text" placeholder="A large, nocturnal, burrowing mammal, Orycteropus afer, of central and southern Africa." required>
+  <label for="define-new">Definition:</label>
+  <input id="define-new" name="define-new" type="text" placeholder="A large, nocturnal, burrowing mammal, Orycteropus afer, of central and southern Africa." required>
   <br>
   <br>
-  <button type="submit" class="btn btn-primary btn-md">Add Word</button>
+  <button type="submit" name="addBoth" class="btn btn-primary btn-md">Add Word</button>
 </form>
 <br>
 #if ($words.size() > 0)
   <p>Would you like to add a secondary definition to your word?</p>
   <form action="/adddefinition" method="post">
-    <label for="inputfromdefinepage">Definition:</label>
-    <input id="inputfromdefinepage" name="inputfromdefinepage" type="text" required>
+    <label for="add-definition">Definition:</label>
+    <input id="add-definition" name="add-definition" type="text" required>
     <select id="wordSelection" name="wordSelection" type="text">
       #foreach ($word in $words)
         <option value="$word.getId()">$word.getName()</option>
       #end
     </select>
-    <button type="submit" class="btn btn-primary btn-md">Add Another Definition</button>
+    <button type="submit" name="addDef" class="btn btn-primary btn-md">Add Another Definition</button>
   </form>
 #end
