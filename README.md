@@ -14,7 +14,7 @@
 
 **Or**
 
->Clone repository to local machine, run the program in terminal by entering `$ gradle run`, and navigate to the [localhost](http://localhost:4567/).
+>Clone repository to local machine, compile and run the program in terminal by entering `$ gradle run`, and navigate to the [localhost](http://localhost:4567/).
 
 ## Technologies Used
 
