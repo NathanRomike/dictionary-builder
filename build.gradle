@@ -1,5 +1,6 @@
 apply plugin: 'java'
 apply plugin: 'application'
+apply plugin: 'maven'
 
 archivesBaseName = "dictionary-builder"
 version = '1.0'
@@ -20,3 +21,12 @@ dependencies {
 
 defaultTasks = ['clean']
 task stage(dependsOn: ['clean', 'installApp'])
+task createPom << {
+    pom {
+        project {
+            groupId 'com.newrelic.agent.java'
+            artifactId 'newrelic-java'
+            version '3.30.0'
+        }
+    }.writeTo("pom.xml")
+}
